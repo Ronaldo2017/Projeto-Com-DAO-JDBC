@@ -25,6 +25,11 @@ public class Program2 {
 		System.out.println(department);
 
 		System.out.println();
+		
+		System.out.println("=== TESTE : DEPARTMENT FINDbyName");
+		Department department2 = departmentDao.findByName("TI");
+		System.out.println(department2);
+		
 
 		System.out.println();
 		System.out.println("=== TESTE 3: DEPARTMENT FINDALL");
@@ -45,9 +50,9 @@ public class Program2 {
 		System.out.println();
 		System.out.println("=== TEST 6: DEPARTMENT UPDATE ====");
 		department = departmentDao.findById(12);
-		department.setName("Construção");
+		department.setName("Consumer");
 		departmentDao.update(department);
-		System.out.println("Update completed!");
+		System.out.println("Update completed!" + department.getName());
 
 		System.out.println();
 		System.out.println("=== TEST 5: DEPARTMENT DELETED ====");
