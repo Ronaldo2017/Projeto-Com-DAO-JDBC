@@ -123,7 +123,7 @@ public class SellerDaoJDBC implements SellerDao {
 			st = conn.prepareStatement(
 					"SELECT seller.*,department.Name as DepName "
 					+ "FROM seller INNER JOIN department "
-					+ "ON seller.DepartmentId = department.Id \r\n"
+					+ "ON seller.DepartmentId = department.Id "
 					+ "WHERE seller.Id = ?");
 			
 			st.setInt(1, id);
@@ -185,7 +185,7 @@ public class SellerDaoJDBC implements SellerDao {
 				// teste departamento ja existe, pega o id
 				Department dp = map.get(rs.getInt("DepartmentId"));
 
-				// se o departamento na existir, instancia e salva o departamento no map
+				// se o departamento nao existir, instancia e salva o departamento no map
 				if (dp == null) {
 					dp = instantiateDepartment(rs);
 					map.put(rs.getInt("DepartmentId"), dp);
